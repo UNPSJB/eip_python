@@ -14,3 +14,8 @@ def fib2(n): # devuelve la serie Fibonacci hasta n
         resultado.append(b)
         a, b = b, a+b
     return resultado
+
+if __name__ == "__main__":
+    import sys
+    fib(int(sys.argv[1]))
+
