@@ -1,3 +1,5 @@
 *.py[co]
 .ipynb_checkpoints/
 datos/anaconda
+*.mksh*
+
