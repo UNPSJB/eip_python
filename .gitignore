@@ -2,4 +2,6 @@
 .ipynb_checkpoints/
 datos/anaconda
 *.mksh*
-
+*.orig
+*_REMOTE_*
+*_LOCAL_*
