@@ -1,5 +1,7 @@
 *.py[co]
 .ipynb_checkpoints/
+*nombres_*.csv.bz2
+*nombres_*.csv.gz
 datos/anaconda
 *.mksh*
 *.orig
