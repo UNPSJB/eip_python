@@ -56,6 +56,8 @@ FILTROS = {
     "levenshtein": levenshtein_func,
     "canonico": canonico_func,
     "nombre": nombre_func
+    # Se pueden continuar creando y agregando funciones y todo funciona :)
+    # ej regex, startswith, endswith
 }
 
 def aplicar_filtros(datos, filtros):
