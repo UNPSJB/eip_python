@@ -9,7 +9,7 @@ Phonetic = metaphone.PhoneticAlgorithmsES()
 class Registro(RegistroTupla):
     def __new__(cls, *args, **kwargs):
         if len(args) == 3:
-            args = args + ("",)
+            args = args + ("", )
         return RegistroTupla.__new__(cls, *args, **kwargs)
     
     def _nombre(self, n):
@@ -46,9 +46,10 @@ class Registro(RegistroTupla):
     def quinto(self):
         return self._nombre(4)
 
-def convertir_dato_en_registro(tupla):
-    nombre, cantidad, anio = tupla
-    nombre = nombre.strip()
-    cantidad = int(cantidad)
-    anio = int(anio)
-    return Registro(nombre, cantidad, anio)
+    @staticmethod
+    def factory(tupla):
+        nombre, cantidad, anio = tupla
+        nombre = nombre.strip()
+        cantidad = int(cantidad)
+        anio = int(anio)
+        return Registro(nombre, cantidad, anio)

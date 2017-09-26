@@ -2,7 +2,7 @@ from pprint import pprint
 import random
 
 from data_load import load_datos_raw
-from modelo import convertir_dato_en_registro
+from modelo import Registro
 from funciones import ordenar, compara, gender
 import storage
 
@@ -18,7 +18,7 @@ import storage
 #        r.append(d)
 
 def main():
-    #datosweb = [convertir_dato_en_registro(tupla) for tupla in load_datos_raw()]
+    #datosweb = [Registro.factory(tupla) for tupla in load_datos_raw()]
     #pprint(datos)
     #pprint([(r.primer_nombre, r.genero) for r in datos])
     datos = storage.recuperar_datos()

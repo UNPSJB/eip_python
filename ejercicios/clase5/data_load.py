@@ -15,14 +15,14 @@ URLS_DATOS = [
     "http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/54133680-1081-4db5-8e1d-a002c1fdb6f5/download/nombres-1965-1969.csv",
     "http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/054a1f82-7304-4305-ba1c-2546befdd78e/download/nombres-1970-1974.csv",
     "http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/41ef698a-b71c-4b25-b69f-ae12e30dc356/download/nombres-1975-1979.csv",
-    #"http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/9fc0c3f6-061b-4e70-821c-1e860276b119/download/nombres-1980-1984.csv",
-    #"http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/778842bb-4783-46fe-84ba-7dea0ea75736/download/nombres-1985-1989.csv",
-    #"http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/fb029bfb-e587-47eb-bcf6-95ac0253f843/download/nombres-1990-1994.csv",
-    #"http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/be63d92a-1c6f-4899-8883-994024877dc9/download/nombres-1995-1999.csv",
-    #"http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/55eb9549-2be8-41ce-8c72-52ee789f6e01/download/nombres-2000-2004.csv",
-    #"http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/2bc614ab-e044-4e49-94f6-b6e8cec02607/download/nombres-2005-2009.csv",
-    #"http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/d7229d66-d2f1-4679-8fb5-568a5e8f6ab3/download/nombres-2010-2014.csv",
-    #"http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/9e1eca6c-4c58-4f22-8bd4-701fa16c9db0/download/nombres-2015.csv"
+    "http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/9fc0c3f6-061b-4e70-821c-1e860276b119/download/nombres-1980-1984.csv",
+    "http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/778842bb-4783-46fe-84ba-7dea0ea75736/download/nombres-1985-1989.csv",
+    "http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/fb029bfb-e587-47eb-bcf6-95ac0253f843/download/nombres-1990-1994.csv",
+    "http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/be63d92a-1c6f-4899-8883-994024877dc9/download/nombres-1995-1999.csv",
+    "http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/55eb9549-2be8-41ce-8c72-52ee789f6e01/download/nombres-2000-2004.csv",
+    "http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/2bc614ab-e044-4e49-94f6-b6e8cec02607/download/nombres-2005-2009.csv",
+    "http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/d7229d66-d2f1-4679-8fb5-568a5e8f6ab3/download/nombres-2010-2014.csv",
+    "http://datos.gob.ar/dataset/b8418d41-8e0c-4e85-8aa8-80d51a840132/resource/9e1eca6c-4c58-4f22-8bd4-701fa16c9db0/download/nombres-2015.csv"
 ]
 
 
@@ -71,4 +71,7 @@ def datos_webs():
         datos.extend(datos_web(url))
     return datos
 
-load_datos_raw = datos_webs
+def datos_web_actual():
+    return datos_web(URLS_DATOS[-1])
+
+load_datos_raw = datos_in
