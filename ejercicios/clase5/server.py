@@ -8,8 +8,8 @@ from modelo import Registro
 import storage
 import data_load
 
-REGISTROS = storage.recuperar_datos()
-#REGISTROS = [Registro.factory(tupla) for tupla in data_load.datos_web_actual()]
+#REGISTROS = storage.recuperar_datos()
+REGISTROS = [Registro.factory(tupla) for tupla in data_load.datos_web_actual()]
 
 parser = reqparse.RequestParser()
 parser.add_argument('nombre', required=True)
@@ -65,6 +65,25 @@ class Nombres(Resource):
             REGISTROS.remove(viejo)
         nuevo = viejo._replace(cantidad=viejo.cantidad + 1)
         REGISTROS.append(nuevo)
+        return nuevo._asdict(), 201
+
+    @swagger.operation()
+    def delete(self):
+        args = parser.parse_args()
+        nombre = args["nombre"]
+        anio = args["anio"] or datetime.now().year
+        filtros = [
+            filtrar.FILTROS["nombre"](nombre),
+            filtrar.FILTROS["anio"](anio)
+        ]
+        viejo = filtrar.obtener_uno(REGISTROS, filtros)
+        if viejo is None:
+            viejo = Registro.factory((nombre, 0, anio))
+        else:
+            REGISTROS.remove(viejo)
+        nuevo = viejo._replace(cantidad=viejo.cantidad - 1)
+        if nuevo.cantidad:
+            REGISTROS.append(nuevo)
         return nuevo._asdict(), 201
 
 def main():
